@@ -1,0 +1,32 @@
+{
+  "name": "mvc-azure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohmymario/mvc-azure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohmymario/mvc-azure/issues"
+  },
+  "homepage": "https://github.com/ohmymario/mvc-azure#readme",
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.8.0",
+    "mongoose": "^6.4.6",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-azure-ad": "^4.3.3"
+  }
+}
