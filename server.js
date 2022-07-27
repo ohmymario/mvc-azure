@@ -1,24 +1,38 @@
+// Handle CRUD API
 const express = require("express");
 const app = express();
+
+// Methods to talk to the database
+// Built on top of MongoDB
 const mongoose = require("mongoose");
+
+// Authentication
 const passport = require("passport");
 
+// Keep users logged in
 const session = require("express-session");
+
+// Pass the session to the Database
+// Enables users to stay logged in even when the server needs to restart
+// Uses cookies to keep the session alive
 const MongoStore = require("connect-mongo")(session);
 
 // Function to connect to DB
-// const connectDB = require("./config/database");
+const connectDB = require("./config/database");
 
 // Routes
-// const authRoutes = require("./routes/auth");
-// const homeRoutes = require("./routes/home");
-// const todoRoutes = require("./routes/todos");
+const authRoutes = require("./routes/auth");
+const homeRoutes = require("./routes/home");
+const todoRoutes = require("./routes/todos");
 
+// Loads environment variables from .env file.
 require("dotenv").config({ path: "./config/.env" });
 
 // Function that takes in passport
 // using Microsoft Azure Active Directory
-// require("./config/passport")(passport);
+require("./config/passport")(passport);
+
+connectDB();
 
 // Express Setup Middleware
 // ejs templating
@@ -46,6 +60,7 @@ app.use(
 );
 
 // Passport Middleware
+// Starts the functionality of passport
 app.use(passport.initialize());
 app.use(passport.session());
 
